@@ -1,8 +1,20 @@
 SimpleCms::Application.routes.draw do
- 
-  root "demo#index"
-  
+
+  # Don't need these auto-generated routes.
+  # We are using default route.
+  #   get "admin_users/index"
+  #   get "admin_users/new"
+  #   get "admin_users/edit"
+  #   get "admin_users/delete"
+
+  root "public#index"
+
+  get 'show/:permalink', :to => 'public#show'
+  get 'admin', :to => "access#index"
+
+  #get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -43,7 +55,7 @@ SimpleCms::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

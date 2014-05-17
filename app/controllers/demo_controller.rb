@@ -1,6 +1,6 @@
 class DemoController < ApplicationController
 
-  layout false
+  layout 'application'
 
   def index
   end
@@ -23,5 +23,7 @@ class DemoController < ApplicationController
   def text_helpers
   end
 
+  def escape_output
+  end
 
 end
